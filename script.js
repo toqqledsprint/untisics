@@ -8,7 +8,7 @@ const port = 3979;
 app.get('/', async (req, res) => {
     try {
         const { server, school, username, password } = req.query;
-        
+
         if (!server & !school & !username & !password) {
             return res.redirect('https://simon.eftekhari.xyz');
         }
@@ -40,12 +40,15 @@ app.get('/', async (req, res) => {
                 const endHour = Math.floor(lesson.endTime / 100);
                 const endMinute = lesson.endTime % 100;
 
-                const subjects = lesson.su.map(subject => subject.longname).join(', ');
-                const rooms = lesson.ro ? lesson.ro.map(room => room.name).join(', ') : 'Kein Raum angegeben';
-                const teachers = lesson.te ? lesson.te.map(teacher => teacher.longname).join(', ') : 'Kein Lehrer angegeben';
+                const subjects = lesson.su.map(subject => subject.name).join(', ');
+                const fullsubjects = lesson.su.map(subject => subject.longname).join(', ');
+                const rooms = lesson.ro ? lesson.ro.map(room => room.name).join(', ') : 'Kein Raum';
+                const teachers = lesson.te ? lesson.te.map(teacher => teacher.longname).join(', ') : 'Kein Lehrer';
 
-                const inf = lesson.info ? `\n\nInfo: ${lesson.info || ''}` : '';
-                const fullinfo = `Lehrer: ${teachers}${inf}`;
+                const inf = lesson.info ? `\nInfo: ${lesson.info}` : '';
+
+                // Hausaufgaben und Lehrstoff hinzufügen
+                const fullinfo = `Fach: ${fullsubjects}\nLehrer: ${teachers}${inf}\Hausaufgaben: ${lesson.hw || 'Keine Hausaufgaben'}\nLehrstoff: ${lesson.ld || 'Kein Lehrstoff'}`;
 
                 return {
                     start: [year, month, day, startHour, startMinute],
@@ -56,6 +59,7 @@ app.get('/', async (req, res) => {
                 };
             });
 
+        // Events zusammenführen, falls aufeinanderfolgend
         const mergedEvents = [];
         for (let i = 0; i < events.length; i++) {
             const currentEvent = events[i];
@@ -98,5 +102,5 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`ICSUntis running on http://localhost:${port}`);
+    console.log(`UntisIcs läuft auf http://localhost:${port}`);
 });
