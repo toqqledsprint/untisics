@@ -27,7 +27,7 @@ Beispiel:
 https://bbs-tghs.webuntis.com/WebUntis/NewsFeed.do?school=bbs-tghs
 ```
 
-To generate an ICS file, you need to make a GET request to the ICSUntis server with the following parameters:
+Sie benötigen folgende Daten, um das Skript nutzen zu können:
 
 - `server`: komplette URL des Untis Servers (inkl. webuntis.com)
 - `school`: Kurzname Ihrer Schule
