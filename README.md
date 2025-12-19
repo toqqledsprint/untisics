@@ -1,4 +1,3 @@
-##
 
 Ein simples Skript, das über einen GET-Request einen Stundenplan von WebUntis erstellt im .ics Format erstellt.
 
