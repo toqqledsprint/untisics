@@ -1,6 +1,13 @@
 
 Ein simples Skript, das über einen GET-Request einen Stundenplan von WebUntis erstellt im .ics Format erstellt.
 
+## Vor dem Verwenden
+
+Sie müssen express installieren, damit sich das Programm ausführen lässt
+
+```http
+npm install express
+```
 
 ## Verwendung
 
