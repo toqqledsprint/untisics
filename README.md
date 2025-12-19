@@ -35,7 +35,7 @@ https://bbs-tghs.webuntis.com/WebUntis/NewsFeed.do?school=bbs-tghs
 
 Sie benötigen folgende Daten, um das Skript nutzen zu können:
 
-- `server`: komplette URL des Untis Servers (inkl. webuntis.com)
+- `server`: Komplette URL des Untis Servers (inkl. webuntis.com)
 - `school`: Kurzname Ihrer Schule
 - `username`: Ihr WebUntis Nutzername
 - `password`: Ihr WebUntis Passwort
